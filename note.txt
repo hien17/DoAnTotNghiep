@@ -1,0 +1,34 @@
+mỗi nhân viên dọn phòng, dùng thẻ RFID để vào phòng -> bật điện
+Hệ thống blockchain ghi nhận thông tin
+
+khách thuê => kiểm tra thông tin tiêu thụ/cảm biến -> từ đó có thể kiểm soát được tình trạng hư hỏng
+
+
+cần UI (dễ sử dụng) để publish được data lên hệ thống -> trình bày xem mã hóa như thế nào
+
+viết docs hướng dẫn sử dụng nền tảng blockchain
+
+làm việc trên M5 + web app
+=> Nghiên cứu xem Thingsboard có kết nối được đa tài khoản cùng lúc => ko ổn chuyển qua Adafruit
+
+QUAN TRỌNG: Trình bày được lợi ích của hợp đồng bằng blockchain so với thông thường => có thật sự cần thiết?
+
+=> công khai về giá cả, quản lý người sử dụng dịch vụ, ko phải end-user (người thuê lại homestay xong cho người khác thuê -> có thể truy xuất khi có tranh chấp xảy ra), 
+minh bạch về tình trạng thiết bị trước và sau khi kết thúc chu kỳ thuê
+
+Chậm nhất T6 tuần sau demo publish dữ liệu lên server blockchain => có thể cấp tài khoản cho thầy để test
+Source publish 
+Source lấy data về xem
+(Chỉ cần publish được data đơn giản)
+
+Thông thường ở hội đồng: Trình bày được kĩ thuật mã hóa, platform, kết nối IoT với hệ thống,... Nên deploy được hệ thống
+
+tên đề tài, gvhd, lí do chọn đề tài => trong gd1 làm gì, gd2 sẽ làm gì, tập trung vào vấn đề chính, có chủ đích
+
+không set riêng tư => cần cho phép bên homestay và cả khách thấy
+
+tine:1 tuần => demo cho thầy xong công nghệ, bàn tính năng sau
+time:2 tuần => thuyết trình(gk)
+
+
+
