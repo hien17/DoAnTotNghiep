@@ -45,7 +45,7 @@ export default function Home() {
     <main className="main">
       <div className="container">
         <div className="header">
-          <h1 className="title">
+          <h1 className="title text-6xl font-bold">
             HNFT using {" "}
             <span className="gradient-text-0">
               <a
