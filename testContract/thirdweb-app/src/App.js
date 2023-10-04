@@ -114,7 +114,28 @@ export default function Home() {
     <div className="border-black h-16 border-[0.5px]">
 
     </div>
-    <div>Main Page</div>
+    <div className="border-[5px] border-cyan-400 p-20 m-20 rounded-xl
+   space-y-10 ">
+      <div className="grid grid-cols-2 w-full ">
+        <div className="text-3xl font-extrabold text-sky-800 ">
+        Contract Address
+        </div>
+        <div className="font-[1000] text-4xl bg-gradient-to-r from-sky-500 to-purple-500 text-transparent 
+               bg-clip-text">
+            {contractAddress}
+        </div>
+      </div>
+      <div className="grid grid-cols-2 w-full">
+        <div className="text-3xl font-extrabold text-sky-800 ">
+        Number of room
+        </div>
+        <div className="font-[1000] text-5xl bg-gradient-to-r from-sky-500 to-purple-500 text-transparent 
+               bg-clip-text">
+          10
+        </div>
+      </div>
+      
+    </div>
     </>
   );
 }
