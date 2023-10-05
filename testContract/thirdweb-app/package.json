@@ -61,6 +61,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-loadable": "^5.5.9"
+    "@types/react-loadable": "^5.5.9",
+    "tailwindcss": "^3.3.3"
   }
 }
