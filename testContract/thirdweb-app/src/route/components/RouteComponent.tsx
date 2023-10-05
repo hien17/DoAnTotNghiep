@@ -2,11 +2,9 @@
 
 import { FC, memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getToken, setToken } from 'reducers/token/action';
-import userService from 'apis/services/userService';
-import { dispatch } from 'store/Store';
+import { dispatch } from '../../store/Store.ts';
 import routeConstants from '../routeConstants';
-import { userActions } from 'reducers/user';
+
 
 interface IProps {
     authorization?: boolean;

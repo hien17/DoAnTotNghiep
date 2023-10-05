@@ -1,8 +1,8 @@
 const routeConstants = {
     HOME: '/',
-    HELLO: '/hello',
-    LOGIN: '/login',
-    DASHBOARD: '/dashboard',
+    BOOKING: '/booking',
+    HISTORY: '/history',
+    MANAGEMENT: '/management',
 };
 
 export default routeConstants;
