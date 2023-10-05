@@ -29,29 +29,29 @@ const routes = [
     {
         name: 'Home',
         path: routeConstants.HOME,
-        Component: commonLoadable(() => import('pages/Home')),
+        Component: commonLoadable(() => import('views/Hello')),
         authorization: true,
     },
     {
-        name: 'Booking',
-        path: routeConstants.BOOKING,
-        Component: commonLoadable(() => import('pages/Booking')),
+        name: 'Hello',
+        path: routeConstants.HELLO,
+        Component: commonLoadable(() => import('views/Hello')),
     },
     {
-        name: 'History',
-        path: routeConstants.HISTORY,
-        Component: commonLoadable(() => import('pages/History')),
+        name: 'Login',
+        path: routeConstants.LOGIN,
+        Component: commonLoadable(() => import('views/Login')),
     },
     {
-        name: 'Management',
-        path: routeConstants.MANAGEMENT,
-        Component: commonLoadable(() => import('pages/Management')),
+        name: 'Dashboard',
+        path: routeConstants.DASHBOARD,
+        Component: commonLoadable(() => import('views/Dashboard')),
         authorization: true,
     },
     {
         name: '404',
         path: '*',
-        Component: commonLoadable(() => import('pages/404')),
+        Component: commonLoadable(() => import('views/404')),
     },
 ];
 

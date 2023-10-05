@@ -7,12 +7,13 @@ import {
   useContractRead,
 } from "@thirdweb-dev/react";
 import "./styles/Home.css";
+
 import { memo } from 'react';
 import RouteController from './route/routeController';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import store, { persistor } from './store/Store.ts';
-import LoadingScreen from './pages/LoadingScreen/LoadingScreen.tsx';
+import store, { persistor } from 'store/Store';
+import LoadingScreen from 'views/LoadingScreen/LoadingScreen';
 
 const App = memo(() => {
   return (
@@ -27,4 +28,3 @@ const App = memo(() => {
 App.displayName = 'App';
 
 export default App;
-

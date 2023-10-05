@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import RouteComponent from './components/RouteComponent.tsx';
-import routes from './routes.ts';
+import RouteComponent from 'route/components/RouteComponent';
+import routes from 'route/routes';
 
 const renderRoute = route => {
     const { name, path, Component, authorization } = route;
