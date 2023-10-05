@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'utils';
+@import 'fonts';
+@import 'common';
+
+body {
+    margin: 0px;
+    font-family: $font-inter;
+    background-color: $color--light;
+    color: $color--black;
+    *[class^='ant-'] {
+        font-family: $font-inter;
+    }
+}
