@@ -6,7 +6,6 @@ import {
   useContract,
   useContractRead,
 } from "@thirdweb-dev/react";
-import "./styles/Home.css";
 
 export default function Home() {
   const address = useAddress();
@@ -111,10 +110,44 @@ export default function Home() {
     //   </div>
     // </main>
     <>
-    <div className="border-black h-16 border-[0.5px]">
-
+    <div className="header p-4 border-b-2 ml-4">
+      <div className="flex gap-4 w-full justify-between">
+        <div className="flex justify-between gap-16
+        ">
+            <div className="m-auto text-5xl font-[1000]
+        bg-gradient-to-r from-sky-400 via-indigo-500 to-cyan-400 text-transparent 
+        bg-clip-text ">
+              Logo
+            </div>
+            <div className="m-auto text-5xl font-[1000]
+        bg-gradient-to-r from-sky-400 via-indigo-500 to-cyan-400 text-transparent 
+        bg-clip-text ">
+              Home
+            </div>
+            <div className="m-auto text-5xl font-[1000]
+        bg-gradient-to-r from-sky-400 via-indigo-500 to-cyan-400 text-transparent 
+        bg-clip-text ">
+              Booking
+            </div>
+            <div className="m-auto text-5xl font-[1000]
+        bg-gradient-to-r from-sky-400 via-indigo-500 to-cyan-400 text-transparent 
+        bg-clip-text ">
+              Management
+            </div>
+            <div className="m-auto text-5xl font-[1000]
+        bg-gradient-to-r from-sky-400 via-indigo-500 to-cyan-400 text-transparent 
+        bg-clip-text ">
+              History
+            </div>
+        </div>
+        <div className="flex">
+          <ConnectWallet ></ConnectWallet>
+        </div>
+      </div>
+      
+      
     </div>
-    <div className="border-[5px] border-cyan-400 p-20 m-20 rounded-xl
+    <div className="body border-[5px] border-cyan-400 p-20 m-20 rounded-xl
    space-y-10 ">
       <div className="grid grid-cols-2 w-full ">
         <div className="text-3xl font-extrabold text-sky-800 ">
