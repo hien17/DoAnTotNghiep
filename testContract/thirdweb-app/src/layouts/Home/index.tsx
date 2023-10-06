@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren, memo } from 'react';
+import { Header } from 'components';
 // import './index.scss'; Import if needed
 
 interface Props {
@@ -8,7 +9,12 @@ interface Props {
 
 const HomeLayout: FC<PropsWithChildren<Props>> = memo(
     ({ children, title, subTitle }) => {
-        return <>{children}</>;
+        return (
+            <div>
+                <Header />
+                {children}
+            </div>
+        );
     }
 );
 HomeLayout.displayName = 'HomeLayout';

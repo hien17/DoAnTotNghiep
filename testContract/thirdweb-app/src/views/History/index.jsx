@@ -4,7 +4,9 @@ import { memo, useCallback, useEffect, useState } from 'react';
 
 const History = memo(() => {
     return (    
+        <HomeLayout>
         <Inner/>
+        </HomeLayout>
     );
 });
 
