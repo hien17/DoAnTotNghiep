@@ -17,7 +17,8 @@ contract HomestayNFT is ERC721, Ownable {
     uint256 internal immutable _startTime;
     mapping(uint256=>bool) _roomValidity;
     uint256 public _noRooms;
-    
+    mapping (address=>uint256) private _noNftOfRenter;
+    mapping (address=>uint256) private _noNftOfProvider;
 
     constructor(uint256 noRooms) ERC721("HomestayNFT","HNFT"){
         _startTime = block.timestamp;
@@ -72,8 +73,10 @@ contract HomestayNFT is ERC721, Ownable {
         
         //create a nft in address of msg.sender
         _safeMint(msg.sender,tokenId);
-        _nfts[tokenId] = NFT(msg.sender,to,roomId,rentAmount,block.timestamp,secondsUntilStartTime,duration);
+        _nfts[tokenId] = NFT(to,msg.sender,roomId,rentAmount,block.timestamp,secondsUntilStartTime,duration);
         _tokenIdCounter.increment();
+        _noNftOfProvider[to]++;
+        _noNftOfRenter[msg.sender]++;
     }
 
     function getNFTInfo(uint256 tokenId) public view returns (
