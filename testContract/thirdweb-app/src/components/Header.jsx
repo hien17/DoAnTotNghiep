@@ -1,8 +1,11 @@
 import React from 'react'
 import { ConnectWallet } from '@thirdweb-dev/react'
 import logo from "../assets/logo/logo.png";
+import {useNavigate } from 'react-router-dom';
+import routeConstants from 'route/routeConstants';
 const Header = () => {
   const pageNameStyle = "m-auto text-2xl font-[1000] bg-gradient-to-r from-sky-400 via-indigo-300 to-cyan-400 text-transparent bg-clip-text ";
+  const navigate = useNavigate();
   return (
     <div className="header p-4 border-b-2 ml-4">
       <div className="flex gap-4 w-full justify-between">
@@ -11,18 +14,22 @@ const Header = () => {
         </div>
         <div className="flex justify-between gap-16
         ">
-            <div className={`${pageNameStyle}`}>
+            <button className={`${pageNameStyle}`}
+            onClick={()=>navigate(routeConstants.HOME)}>
               Home
-            </div>
-            <div className={`${pageNameStyle}`}>
+            </button>
+            <button className={`${pageNameStyle}`}
+            onClick={()=>navigate(routeConstants.BOOKING)}>
               Booking
-            </div>
-            <div className={`${pageNameStyle}`}>
+            </button>
+            <button className={`${pageNameStyle}`}
+            onClick={()=>navigate(routeConstants.MANAGEMENT)}>
               Management
-            </div>
-            <div className={`${pageNameStyle}`}>
+            </button>
+            <button className={`${pageNameStyle}`}
+            onClick={()=>navigate(routeConstants.HISTORY)}>
               History
-            </div>
+            </button>
         </div>
         <div className="flex">
           <ConnectWallet ></ConnectWallet>

@@ -4,14 +4,14 @@ import { memo } from 'react';
 
 const Wrapper = memo(() => {
     return (
-        <HomeLayout title="Hello">
+        <HomeLayout title="Home">
             <Inner />
         </HomeLayout>
     );
 });
 
-Wrapper.displayName = 'Hello';
+Wrapper.displayName = 'Home';
 
-const Hello = Wrapper;
+const Home = Wrapper;
 
-export default Hello;
+export default Home;

@@ -29,13 +29,13 @@ const routes = [
     {
         name: 'Home',
         path: routeConstants.HOME,
-        Component: commonLoadable(() => import('views/Hello')),
+        Component: commonLoadable(() => import('views/Home')),
         authorization: true,
     },
     {
-        name: 'Hello',
-        path: routeConstants.HELLO,
-        Component: commonLoadable(() => import('views/Hello')),
+        name: 'Management',
+        path: routeConstants.MANAGEMENT,
+        Component: commonLoadable(() => import('views/Management')),
     },
     {
         name: 'Login',
@@ -46,6 +46,12 @@ const routes = [
         name: 'Dashboard',
         path: routeConstants.DASHBOARD,
         Component: commonLoadable(() => import('views/Dashboard')),
+        authorization: true,
+    },
+    {
+        name: 'Booking',
+        path: routeConstants.BOOKING,
+        Component: commonLoadable(() => import('views/Booking')),
         authorization: true,
     },
     {

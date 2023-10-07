@@ -1,7 +1,4 @@
 import { memo, useCallback, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getToken } from 'reducers/token/action';
-import userService from 'apis/services/userService';
 import Inner from 'views/Login/Inner';
 
 const Wrapper = memo(() => {
