@@ -55,6 +55,12 @@ const routes = [
         authorization: true,
     },
     {
+        name: 'History',
+        path: routeConstants.HISTORY,
+        Component: commonLoadable(() => import('views/History')),
+        authorization: true,
+    },
+    {
         name: '404',
         path: '*',
         Component: commonLoadable(() => import('views/404')),

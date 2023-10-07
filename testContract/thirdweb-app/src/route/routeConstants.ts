@@ -5,6 +5,7 @@ const routeConstants = {
     MANAGEMENT: '/management',
     HISTORY: '/history',
     DASHBOARD: '/dashboard',
+    HISTORY: '/history'
 };
 
 export default routeConstants;

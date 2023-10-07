@@ -4,6 +4,7 @@ import logo from "../assets/logo/logo.png";
 import {useNavigate } from 'react-router-dom';
 import routeConstants from 'route/routeConstants';
 const Header = () => {
+  const navigate = useNavigate();
   const pageNameStyle = "m-auto text-2xl font-[1000] bg-gradient-to-r from-sky-400 via-indigo-300 to-cyan-400 text-transparent bg-clip-text ";
   const navigate = useNavigate();
   return (
