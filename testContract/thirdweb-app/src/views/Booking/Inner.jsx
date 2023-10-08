@@ -13,7 +13,6 @@ const Inner = memo(() => {
   
   return (
     <div>
-      <Header></Header>
       Booking page 
     </div>
   )

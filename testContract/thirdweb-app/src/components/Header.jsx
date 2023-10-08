@@ -6,12 +6,11 @@ import routeConstants from 'route/routeConstants';
 const Header = () => {
   const navigate = useNavigate();
   const pageNameStyle = "m-auto text-2xl font-[1000] bg-gradient-to-r from-sky-400 via-indigo-300 to-cyan-400 text-transparent bg-clip-text ";
-  const navigate = useNavigate();
   return (
-    <div className="header p-4 border-b-2 ml-4">
+    <div className="header p-2 border-b-2 ml-4">
       <div className="flex gap-4 w-full justify-between">
         <div>
-          <img className='w-20' src={logo}></img>
+          <img className='w-16' src={logo}></img>
         </div>
         <div className="flex justify-between gap-16
         ">

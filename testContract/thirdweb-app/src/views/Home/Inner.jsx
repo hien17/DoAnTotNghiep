@@ -8,13 +8,13 @@ import {
 } from "@thirdweb-dev/react";
 import "../../styles/Home.css";
 import { Header } from "components";
+import { Slider } from "components";
 
 const Inner = memo(() => {
   
   return (
     <div>
-      <Header></Header>
-      Home page - landing page
+      <Slider/>
     </div>
   )
 });

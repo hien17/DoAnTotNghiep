@@ -27,6 +27,12 @@ const commonLoadable = (loader: any) =>
 
 const routes = [
     {
+        name: 'LandingPage',
+        path: routeConstants.LANDINGPAGE,
+        Component: commonLoadable(() => import('views/Home')),
+        authorization: true,
+    },
+    {
         name: 'Home',
         path: routeConstants.HOME,
         Component: commonLoadable(() => import('views/Home')),

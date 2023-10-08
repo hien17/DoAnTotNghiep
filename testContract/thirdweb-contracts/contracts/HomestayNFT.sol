@@ -20,7 +20,7 @@ contract HomestayNFT is ERC721, Ownable {
     mapping (address=>uint256) private _noNftOfRenter;
     mapping (address=>uint256) private _noNftOfProvider;
 
-    constructor(uint256 noRooms) ERC721("HomestayNFT","HNFT"){
+    constructor(uint256 noRooms) ERC721("HomestayNFT","HNFT") Ownable() {
         _startTime = block.timestamp;
         _noRooms = noRooms;
         for (uint256 i = 0; i < noRooms; i++) {
@@ -51,7 +51,9 @@ contract HomestayNFT is ERC721, Ownable {
     function setNoRooms(uint256 noRooms) public {
         _noRooms = noRooms;
     }
-
+    function getRoomValidity(uint256 roomId) public view returns(bool){
+        return _roomValidity[roomId];
+    }
     //function to change validity of a specific room
     function setRoomValidity(uint256 roomId, bool isValid) public onlyOwner {
         require(roomId>0, "Invalid room id");
