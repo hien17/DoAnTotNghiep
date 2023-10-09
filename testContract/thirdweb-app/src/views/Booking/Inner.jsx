@@ -8,13 +8,24 @@ import {
 } from "@thirdweb-dev/react";
 import "../../styles/Home.css";
 import { Header } from "components";
+import BookingCard from "components/Booking/BookingCard";
+import { ClassNames } from "@emotion/react";
 
 const Inner = memo(() => {
   
   return (
-    <div>
-      Booking page 
+    <>
+    <div className="ml-20 mt-6 flex ">
+      <div className="border-r-2 pr-4 w-fit text-xl font-bold text-cyan-700">
+        <p>Mint NFT Stay</p>
+      </div>
+      <div className="pl-4 text-sm my-auto">
+        <p>Booking your homestay</p>
+      </div>
     </div>
+      <BookingCard>
+      </BookingCard>
+    </>
   )
 });
 
