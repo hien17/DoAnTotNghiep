@@ -1,22 +1,13 @@
-import { useEffect, useState, memo } from "react";
-import {
-  ConnectWallet,
-  Web3Button,
-  useAddress,
-  useContract,
-  useContractRead,
-} from "@thirdweb-dev/react";
-import "../../styles/Home.css";
-import { Header } from "components";
-import { Slider } from "components";
-
+import { useEffect, useState, memo } from 'react';
+import HeadBanner from './components/HeadBanner';
+import Destinations from './components/Destinations';
 const Inner = memo(() => {
-  
-  return (
-    <div>
-      <Slider/>
-    </div>
-  )
+    return (
+        <div className="home">
+            <HeadBanner></HeadBanner>
+            <Destinations></Destinations>
+        </div>
+    );
 });
 
 Inner.displayName = 'Home Inner';
