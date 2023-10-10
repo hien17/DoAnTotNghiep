@@ -1,144 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import WhiteLeftArrow from "icons/WhiteLeftArrow";
+import WhiteRightArrow from "icons/WhiteRightArrow";
+import { columns, data } from "./data";
 
-const dataSource = [
-  {
-    key: '1',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '2',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '3',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '4',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '5',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '6',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '7',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '8',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '9',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '10',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Quang',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-  {
-    key: '11',
-    transactionHash: '0x1234567890abcdef',
-    name: 'Hien',
-    sender: '0xabcdef1234567890',
-    receiver: '0x7890abcdef123456',
-    amount: '5 BNB',
-    timestamp: '2023-10-05 12:00:00'
-  },
-];
-
-const columns = [
-  {
-    title: 'Transaction Hash',
-    dataIndex: 'transactionHash',
-    key: 'transactionHash'
-  },
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name'
-  },
-  {
-    title: 'Sender',
-    dataIndex: 'sender',
-    key: 'sender'
-  },
-  {
-    title: 'Receiver',
-    dataIndex: 'receiver',
-    key: 'receiver'
-  },
-  {
-    title: 'Amount',
-    dataIndex: 'amount',
-    key: 'amount'
-  },
-  {
-    title: 'Timestamp',
-    dataIndex: 'timestamp',
-    key: 'timestamp'
-  }
-];
+const Modal = ({ transaction, onClose }) => {
+  return (
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="bg-white rounded-lg p-6 w-1/2 relative">
+        <button onClick={onClose} className="absolute top-2 right-2 text-xl">
+          ×
+        </button>
+        <h2 className="text-2xl mb-4">Transaction Details</h2>
+        {columns.map((column) => (
+          <div key={column.key} className="mb-3">
+            <strong>{column.title}: </strong> {transaction[column.dataIndex]}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const BNBTransactionTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(10); // Default to 10 rows per page
-  const totalDataCount = dataSource.length;
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [selectedData, setSelectedData] = useState(null); // Added the missing state
+  const totalDataCount = data.length;
   const totalPages = Math.ceil(totalDataCount / rowsPerPage);
 
   const handleRowChange = (e) => {
@@ -150,27 +37,36 @@ const BNBTransactionTable = () => {
     setCurrentPage(Math.min(Math.max(pageNumber, 1), totalPages));
   };
 
-  const displayedData = dataSource.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
+  const displayedData = data.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage,
+  );
 
-  return ( 
+  return (
     <div className="dark:bg-gray-800 p-4 rounded">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900 dark:text-gray-300">
         <thead className="bg-gray-50 dark:bg-gray-800">
           <tr>
             {columns.map((column) => (
-              <th 
+              <th
                 key={column.key}
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
               >
-                {column.dataIndex}
+                {column.title}
               </th>
             ))}
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
           {displayedData.map((data) => (
-            <tr key={data.key} className="dark:hover:bg-gray-700">
+            <tr
+              key={data.key}
+              className="dark:hover:bg-gray-700"
+              onClick={() => setSelectedData(data)}
+            >
+              {" "}
+              {/* Added onClick handler */}
               {columns.map((column) => (
                 <td className="px-6 py-4 whitespace-nowrap">
                   {data[column.dataIndex]}
@@ -181,11 +77,23 @@ const BNBTransactionTable = () => {
         </tbody>
       </table>
 
+      {selectedData && (
+        <Modal
+          transaction={selectedData}
+          onClose={() => setSelectedData(null)}
+        />
+      )}
+
       {/* Navigation bar */}
       <div className="mt-4 flex justify-between items-center">
         <div className="flex items-center">
-          <label className="text-gray-500 dark:text-gray-300 mr-2" htmlFor="rows">Show rows:</label>
-          <select 
+          <label
+            className="text-gray-500 dark:text-gray-300 mr-2"
+            htmlFor="rows"
+          >
+            Show rows:
+          </label>
+          <select
             id="rows"
             value={rowsPerPage}
             onChange={handleRowChange}
@@ -199,31 +107,31 @@ const BNBTransactionTable = () => {
         </div>
 
         <div className="flex items-center space-x-2">
-          <button 
+          <button
             onClick={() => gotoPage(1)}
             disabled={currentPage === 1}
             className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded shadow-md transition duration-200"
           >
             First
           </button>
-          <button 
+          <button
             onClick={() => gotoPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded shadow-md transition duration-200"
+            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded shadow-md transition duration-200 flex items-center justify-center" // Flexbox classes for centering
           >
-            Previous
+            <WhiteLeftArrow />
           </button>
           <span className="text-gray-500 dark:text-gray-300">
             Page {currentPage} of {totalPages}
           </span>
-          <button 
+          <button
             onClick={() => gotoPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded shadow-md transition duration-200"
+            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded shadow-md transition duration-200 flex items-center justify-center" // Added flexbox classes here
           >
-            Next
+            <WhiteRightArrow />
           </button>
-          <button 
+          <button
             onClick={() => gotoPage(totalPages)}
             disabled={currentPage === totalPages}
             className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded shadow-md transition duration-200"

@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import BNBTransactionTable from './components/table.jsx';
-import './components/table.css';
 
 const Inner = memo(() => {
     return (
