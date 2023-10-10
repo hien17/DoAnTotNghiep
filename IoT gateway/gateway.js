@@ -2,10 +2,10 @@
 const mqtt = require("mqtt");
 
 // Import global variables
-const { MQTT_BROKER_LOCAL, DEVICE_TOKEN, TELEMETRY_TOPIC, RPC_TOPIC } = require("./_global");
+const { MQTT_BROKER_LOCAL, MQTT_BROKER_CLOUD, DEVICE_TOKEN, TELEMETRY_TOPIC, RPC_TOPIC } = require("./_global");
 
 // Define clients list
-const clients = ['ROOM1_DHT22', 'ROOM1_LIGHT', 'ROOM1_AIRCOND'];
+const clients = ['ROOM1_DHT22', 'ROOM1_LIGHT', 'ROOM1_AIRCOND', 'ROOM1_OXYGEN'];
 
 // Define publish interval in seconds
 const seconds = 10;
@@ -46,7 +46,7 @@ const publishData = (client, clientName, sampleData) => {
             console.error("Failed to publish telemetry data:", err);
         } else {
             if (clientName === 'ROOM1_DHT22') {
-                console.log(`TEMP = ${data.temperature} - HUMI = ${data.humidity} published successfully`);
+                console.log(`TEMP = ${data.temperature} & HUMI = ${data.humidity} published successfully`);
             }
             else if (clientName === 'ROOM1_OXYGEN') {
                 console.log(`OXYGEN = ${data.oxygen} published successfully`);
@@ -68,7 +68,7 @@ const isSensor = (name) => {
 
 clients.forEach((clientItem) => {
     // Initialize MQTT client
-    const client = mqtt.connect(MQTT_BROKER_LOCAL, {
+    const client = mqtt.connect(MQTT_BROKER_CLOUD, {
         username: DEVICE_TOKEN[clientItem],
     });
 
