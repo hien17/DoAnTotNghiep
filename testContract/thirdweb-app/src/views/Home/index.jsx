@@ -1,4 +1,5 @@
 import HomeLayout from 'layouts/Home';
+import './index.scss';
 import Inner from './Inner';
 import { memo } from 'react';
 
