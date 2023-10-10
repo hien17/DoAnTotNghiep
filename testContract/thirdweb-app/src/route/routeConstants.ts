@@ -1,7 +1,6 @@
 const routeConstants = {
-    LANDINGPAGE: '/',
+    HOME: '/',
     LOGIN: '/login',
-    HOME: '/home',
     BOOKING: '/booking',
     MANAGEMENT: '/management',
     HISTORY: '/history',

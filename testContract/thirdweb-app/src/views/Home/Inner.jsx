@@ -1,4 +1,4 @@
-import { useEffect, useState, memo } from 'react';
+import { memo } from 'react';
 import HeadBanner from './components/HeadBanner';
 import Destinations from './components/Destinations';
 const Inner = memo(() => {
