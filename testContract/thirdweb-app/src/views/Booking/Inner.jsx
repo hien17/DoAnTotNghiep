@@ -15,7 +15,7 @@ const Inner = memo(() => {
   
   return (
     <>
-    <div className="ml-20 mt-6 flex ">
+    <div className="ml-40 mt-6 flex ">
       <div className="border-r-2 pr-4 w-fit text-xl font-bold text-cyan-700">
         <p>Mint NFT Stay</p>
       </div>
