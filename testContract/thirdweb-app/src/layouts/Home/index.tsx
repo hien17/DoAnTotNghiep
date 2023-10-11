@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, memo } from 'react';
-import { Header } from 'components';
+import Header from 'components/Header';
 // import './index.scss'; Import if needed
 
 interface Props {

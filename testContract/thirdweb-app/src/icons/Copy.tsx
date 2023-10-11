@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-function UserIcon(props) {
+function Copy(props: any) {
     return (
         <svg
             width={24}
             height={24}
             fill="none"
-            stroke="#000"
+            stroke="#d3d3d3"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
@@ -14,9 +14,10 @@ function UserIcon(props) {
             xmlns="http://www.w3.org/2000/svg"
             {...props}
         >
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 3a4 4 0 100 8 4 4 0 100-8z" />
+            <rect width={13} height={13} x={9} y={9} rx={2} ry={2} />
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
         </svg>
     );
 }
 
-export default UserIcon;
+export default Copy;

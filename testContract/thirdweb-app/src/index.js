@@ -3,15 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import "./styles/globals.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  NavLink,
-  BrowserRouter,
-} from "react-router-dom";
+import "scss/styles.scss";
 // This is the chain your dApp will work on.
 // Change this to the chain your app is built for.
 // You can also import additional chains from `@thirdweb-dev/chains` and pass them directly.
@@ -20,15 +12,15 @@ const activeChain = "binance-testnet";
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  <React.StrictMode>
-    <ThirdwebProvider
-      activeChain={activeChain}
-      clientId={process.env.REACT_APP_TEMPLATE_CLIENT_ID}
-    >
-      
-      <App />
-    </ThirdwebProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <ThirdwebProvider
+    activeChain={activeChain}
+    clientId={process.env.REACT_APP_TEMPLATE_CLIENT_ID}
+  >
+
+    <App />
+  </ThirdwebProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

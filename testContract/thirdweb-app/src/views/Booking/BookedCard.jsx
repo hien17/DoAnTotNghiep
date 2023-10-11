@@ -6,13 +6,12 @@ import {
   useContract,
   useContractRead,
 } from "@thirdweb-dev/react";
-import { Header } from 'components';
 import { shortenAddress } from 'utils/shortenAddress';
-import UserIcon from 'icons/UserIcon';
+import UserIcon2 from 'icons/UserIcon2';
 import WaterPlant from 'icons/WaterPlant';
-import Money from 'icons/Money';
-import Clock from 'icons/Clock';
-import Calendar1 from 'icons/Calendar1';
+import Money2 from 'icons/Money2';
+import Clock2 from 'icons/Clock2';
+import Calendar3 from 'icons/Calendar3';
 import Calendar2 from 'icons/Calendar2';
 
 const BookedCard = ({tokenId}) => {
@@ -48,7 +47,7 @@ const BookedCard = ({tokenId}) => {
             <div className='flex flex-row justify-between gap-2'>
             <div className='w-full'>
               <div className='flex justify-center'>
-                <UserIcon className="w-8"/>
+                <UserIcon2 className="w-8"/>
                 <p className='flex my-auto justify-center font-extrabold text-sky-600'>
                 Provider
                 </p>
@@ -59,7 +58,7 @@ const BookedCard = ({tokenId}) => {
             </div>
             <div className='w-full'>
               <div className='flex justify-center'>
-                <UserIcon className="w-8"/>
+                <UserIcon2 className="w-8"/>
                 <p className='flex my-auto justify-center font-extrabold text-sky-600'>
                 Renter
                 </p>
@@ -83,7 +82,7 @@ const BookedCard = ({tokenId}) => {
             </div>
             <div className='w-full'>
               <div className='flex justify-center'>
-                <Money className="w-10"/>
+                <Money2 className="w-10"/>
                 <p className='flex my-auto justify-center font-extrabold text-sky-600'>
                 Rent Amount
                 </p>
@@ -95,7 +94,7 @@ const BookedCard = ({tokenId}) => {
           </div>
           <div className='justify-center'>
             <div className='flex justify-center'>
-              <Clock className="w-8 mr-2"/>
+              <Clock2 className="w-8 mr-2"/>
               <p className='flex my-auto justify-center font-extrabold text-sky-600'>
                 Duration
               </p>
@@ -106,7 +105,7 @@ const BookedCard = ({tokenId}) => {
           </div>
           <div className='justify-center'>
             <div className='flex justify-center'>
-              <Calendar1 className="mb-6 w-10 mr-2"/>
+              <Calendar3 className="mb-6 w-10 mr-2"/>
               <p className='flex my-auto justify-center font-extrabold text-sky-600'>
               Contract Creation Time
               </p>

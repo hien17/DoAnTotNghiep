@@ -1,5 +1,4 @@
 import { memo,useState } from 'react';
-import '../../styles/Home.css';
 import BookingCard from 'components/Booking/BookingCard';
 import Booked from 'views/Booking/Booked';
 
