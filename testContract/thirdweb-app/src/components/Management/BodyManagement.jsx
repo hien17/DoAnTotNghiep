@@ -17,7 +17,7 @@ import Calendar2 from 'icons/Calendar2';
 
 const BodyManagement = ({tokenId,isButtonClicked}) => {
   const address = useAddress();
-  const contractAddress = "0x7e15935f8ae6FCbBAc0211D2E15A2166143707B3";
+  const contractAddress = "0xC8339AEeCa4a529a7a0571b9654024600f5FC137";
   const { contract } = useContract(contractAddress);
   const { data, isLoading } = useContractRead(contract, "getNFTInfo", [tokenId]);
   console.log(data)
@@ -49,7 +49,7 @@ const BodyManagement = ({tokenId,isButtonClicked}) => {
               <div className='flex justify-center'>
                 <UserIcon className="mb-6"/>
                 <p className='flex my-auto justify-center text-3xl font-extrabold text-sky-600'>
-                Renter
+                Provider
                 </p>
               </div>
               <p className='flex justify-center 
@@ -60,7 +60,7 @@ const BodyManagement = ({tokenId,isButtonClicked}) => {
               <div className='flex justify-center'>
                 <UserIcon className="mb-6"/>
                 <p className='flex my-auto justify-center text-3xl font-extrabold text-sky-600'>
-                Provider
+                Renter
                 </p>
               </div>
               <p className='flex justify-center 
@@ -101,7 +101,7 @@ const BodyManagement = ({tokenId,isButtonClicked}) => {
             </div>
             <p className='flex w-full justify-center
             font-[1000] text-4xl bg-gradient-to-r from-sky-500 to-purple-500 text-transparent 
-            bg-clip-text'>{parseBigNumber(data[6])} seconds</p>
+            bg-clip-text'>{parseBigNumber(data[5])-parseBigNumber(data[4])} seconds</p>
           </div>
           <div className='justify-center'>
             <div className='flex justify-center'>
@@ -112,7 +112,7 @@ const BodyManagement = ({tokenId,isButtonClicked}) => {
             </div>
             <p className='flex w-full justify-center
             font-[1000] text-4xl bg-gradient-to-r from-sky-500 to-purple-500 text-transparent 
-            bg-clip-text'>{formatDate(parseBigNumber(data[4]))}</p>
+            bg-clip-text'>{formatDate(parseBigNumber(data[6]))}</p>
           </div>
           <div className='justify-center'>
             <div className='flex justify-center'>
@@ -122,9 +122,20 @@ const BodyManagement = ({tokenId,isButtonClicked}) => {
               </p>
             </div>
             <p className='flex w-full justify-center font-[1000] text-4xl bg-gradient-to-r from-sky-500 to-purple-500 text-transparent bg-clip-text'>
-                {formatDate(parseInt(parseBigNumber(data[4]))+parseInt(parseBigNumber(data[5])))}
+                {formatDate(parseBigNumber(data[4]))}
             </p>
+          </div>
+          <div className='justify-center'>
+            <div className='flex justify-center'>
+              <Calendar2 className="mb-6 w-16 mr-2"/>
+              <p className='flex my-auto justify-center text-3xl font-extrabold text-sky-600'>
+              Due Time
+              </p>
             </div>
+            <p className='flex w-full justify-center font-[1000] text-4xl bg-gradient-to-r from-sky-500 to-purple-500 text-transparent bg-clip-text'>
+                {formatDate(parseBigNumber(data[5]))}
+            </p>
+          </div>
         </div>
         
         )}

@@ -8,7 +8,8 @@ const Header = () => {
     const navigate = useNavigate();
     const pageNameStyle =
         'm-auto text-xl font-[700] bg-gradient-to-r from-sky-400 via-indigo-300 to-cyan-400 text-transparent bg-clip-text';
-    const activeTab = 'text-lime-500 border-b-4 border-b-lime-500';
+    const activeTab = 
+        'm-auto text-xl font-[1000] bg-gradient-to-r from-teal-400 via-cyan-400 via-purple-300 to-pink-300 text-transparent bg-clip-text';
     return (
         <div className="header p-2 border-b-2 ml-4">
             <div className="flex gap-4 w-full justify-between">
@@ -20,41 +21,41 @@ const Header = () => {
         "
                 >
                     <button
-                        className={`${pageNameStyle} ${
+                        className={`${
                             window.location.pathname === routeConstants.HOME
                                 ? activeTab
-                                : ''
+                                : pageNameStyle
                         }`}
                         onClick={() => navigate(routeConstants.HOME)}
                     >
                         Home
                     </button>
                     <button
-                        className={`${pageNameStyle} ${
+                        className={`${
                             window.location.pathname === routeConstants.BOOKING
                                 ? activeTab
-                                : ''
+                                : pageNameStyle
                         }`}
                         onClick={() => navigate(routeConstants.BOOKING)}
                     >
                         Booking
                     </button>
                     <button
-                        className={`${pageNameStyle} ${
+                        className={`${
                             window.location.pathname ===
                             routeConstants.MANAGEMENT
                                 ? activeTab
-                                : ''
+                                : pageNameStyle
                         }`}
                         onClick={() => navigate(routeConstants.MANAGEMENT)}
                     >
                         Management
                     </button>
                     <button
-                        className={`${pageNameStyle} ${
+                        className={`${
                             window.location.pathname === routeConstants.HISTORY
                                 ? activeTab
-                                : ''
+                                : pageNameStyle
                         }`}
                         onClick={() => navigate(routeConstants.HISTORY)}
                     >

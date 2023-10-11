@@ -15,7 +15,7 @@ import {BodyManagement} from 'components';
 
 const Inner = memo(({ handleLogin }) => {
   const address = useAddress();
-  const contractAddress = "0x7e15935f8ae6FCbBAc0211D2E15A2166143707B3";
+  const contractAddress = "0xC8339AEeCa4a529a7a0571b9654024600f5FC137";
   const [inputValue, setInputValue] = useState(0);
   const [isButtonClicked, setButtonClicked] = useState(false);
 

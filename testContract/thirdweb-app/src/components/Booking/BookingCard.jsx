@@ -9,13 +9,12 @@ import {
 
 const BookingCard = () => {
   const address = useAddress();
-  const { contract } = useContract("0x7e15935f8ae6FCbBAc0211D2E15A2166143707B3");
+  const { contract } = useContract("0xC8339AEeCa4a529a7a0571b9654024600f5FC137");
   
   const [startDate, setStartDate] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endDate, setEndDate] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [duration, setDuration] = useState('');
   const [roomId, setRoomId] = useState('');
 
   const handleStartDateChange = (e) => {
@@ -34,10 +33,6 @@ const BookingCard = () => {
     setEndTime(e.target.value);
   };
 
-  const handleDurationChange = (e) => {
-    setDuration(e.target.value);
-  };
-
   const handleRoomIdChange = (e) => {
     setRoomId(e.target.value);
   };
@@ -46,27 +41,31 @@ const BookingCard = () => {
     e.preventDefault();
 
     // Validate input here (you can use a library like moment.js for more advanced date-time handling)
+    const nowDateTime = new Date(); // Current date and time
+    const nowTimestamp = Math.floor(Date.now() / 1000); // Current timestamp in seconds
 
     // Combine start date and time
     const startDateTime = new Date(`${startDate}T${startTime}`);
-    
+    const startTimestamp = Math.floor(startDateTime.getTime() / 1000); // Convert to seconds
+
     // Combine end date and time
     const endDateTime = new Date(`${endDate}T${endTime}`);
-
+    const endTimestamp = Math.floor(endDateTime.getTime() / 1000); // Convert to seconds
     // Handle the captured date, time, and duration values as needed
+    console.log('Current Date and Time:', nowDateTime);
+    console.log('Current Timestamp:', nowTimestamp);
     console.log('Start Date:', startDateTime);
+    console.log('Start Date Timestamp:', startTimestamp);
     console.log('End Date:', endDateTime);
-    console.log('Duration:', duration);
+    console.log('End Date Timestamp:', endTimestamp);
     console.log('Room ID:', roomId);
 
     // Call the safeMint function with your contract
     if (contract) {
       try {
-        // Convert duration to a number if needed
-        const durationInSeconds = parseInt(duration);
 
         // Call the safeMint function
-        const data = await contract.call("safeMint", [address, roomId, 1000, 2000, durationInSeconds]);
+        const data = await contract.call("safeMint", [roomId,1000,startTimestamp,endTimestamp]);
         
         // Handle the response from the contract here
         console.log('safeMint Response:', data);
@@ -119,18 +118,6 @@ const BookingCard = () => {
                   onChange={handleRoomIdChange}
                 />
                 </div>
-                <div className='flex mt-[18px]'>
-                  <label className='mt-6 mr-4'>
-                  Duration by second
-                  </label>
-                  <input
-                    className='mt-4 border-2 py-1.5 px-4 rounded-xl focus:border-sky-500 focus:border-2 focus:outline-none '
-                    placeholder='36000 (1 day), etc ...'
-                    type='number'
-                    value={duration}
-                    onChange={handleDurationChange}
-                  />
-                </div>
               </div>
               
               
@@ -180,7 +167,7 @@ const BookingCard = () => {
                   dark:focus:ring-cyan-800 font-medium rounded-lg 
                   text-sm py-4 px-16 text-center flex w-fit '
                 >
-                  <p className='text-xl'>Book</p>
+                  <p className='text-xl'> Book with 1000$ </p>
                 </button>
               </div>
               

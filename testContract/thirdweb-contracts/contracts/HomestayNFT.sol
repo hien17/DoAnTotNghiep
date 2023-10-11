@@ -18,7 +18,9 @@ contract HomestayNFT is ERC721, Ownable {
     mapping(uint256=>bool) _roomValidity;
     uint256 public _noRooms;
     mapping (address=>uint256) private _noNftOfRenter;
+    uint256[] private _nftsOfProvider;
     mapping (address=>uint256) private _noNftOfProvider;
+    mapping(address=>uint256[]) private _nftsOfRenter;
 
     constructor(uint256 noRooms) ERC721("HomestayNFT","HNFT") Ownable() {
         _startTime = block.timestamp;
@@ -34,9 +36,10 @@ contract HomestayNFT is ERC721, Ownable {
         address renter;
         uint256 roomId; 
         uint256 rentAmount;
-        uint256 startTime;
-        uint256 secondsUntilStartTime; // time remain by seconds until valid renting
-        uint256 duration; // duration of order by seconds
+        uint256 startTimestamp;
+        uint256 endTimestamp;
+        uint256 createTimestamp; 
+        bool isCancelled;  
     }
 
     struct IoTdevices{
@@ -68,29 +71,40 @@ contract HomestayNFT is ERC721, Ownable {
         }
     }
 
-    function safeMint(address to, uint256 roomId, uint256 rentAmount, uint256 secondsUntilStartTime, uint256 duration) public {
+    function safeMint(uint256 roomId, uint256 rentAmount, uint256 startTimestamp, uint256 endTimestamp) public {
         require(_roomValidity[roomId]==true,"This room is not available");
 
         uint256 tokenId = _tokenIdCounter.current();
         
         //create a nft in address of msg.sender
         _safeMint(msg.sender,tokenId);
-        _nfts[tokenId] = NFT(to,msg.sender,roomId,rentAmount,block.timestamp,secondsUntilStartTime,duration);
+        _nfts[tokenId] = NFT(owner(),msg.sender,roomId,rentAmount,startTimestamp,endTimestamp,block.timestamp,false);
+        _nftsOfProvider.push(tokenId);
+        _nftsOfRenter[msg.sender].push(tokenId);
         _tokenIdCounter.increment();
-        _noNftOfProvider[to]++;
+        _noNftOfProvider[owner()]++;
         _noNftOfRenter[msg.sender]++;
     }
+    function cancelContract(uint256 tokenId) public{
+        require(msg.sender==ownerOf(tokenId),"You are not room's owner");
+        _noNftOfProvider[owner()]--;
+        _noNftOfRenter[msg.sender]--;
+        transferFrom(msg.sender, address(0), tokenId);
+        _nfts[tokenId].isCancelled = true;
+    }
+
 
     function getNFTInfo(uint256 tokenId) public view returns (
         address provider,
         address renter,
         uint256 roomId,
         uint256 rentAmount,
-        uint256 startTime,
-        uint256 secondsUntilStartTime,
-        uint256 duration
+        uint256 startTimestamp,
+        uint256 endTimestamp,
+        uint256 createTimestamp,
+        bool isCancelled
     ) {
-        require(_exists(tokenId), "Token ID does not exist");
+        require(ownerOf(tokenId)!=address(0), "Token ID does not exist");
 
         NFT memory nft = _nfts[tokenId];
 
@@ -99,10 +113,17 @@ contract HomestayNFT is ERC721, Ownable {
             nft.renter,
             nft.roomId,
             nft.rentAmount,
-            nft.startTime,
-            nft.secondsUntilStartTime,
-            nft.duration
+            nft.startTimestamp,
+            nft.endTimestamp,
+            nft.createTimestamp,
+            nft.isCancelled
         );
+    }
+    function getNftsIdOfRenter() public view returns(uint256[] memory) {
+        return _nftsOfRenter[msg.sender];
+    }
+    function getNftsIdOfProvider() public view returns(uint256[] memory) {
+        return _nftsOfProvider;
     }
 
 
