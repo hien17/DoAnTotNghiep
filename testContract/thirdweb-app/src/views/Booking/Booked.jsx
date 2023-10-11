@@ -29,11 +29,12 @@ const Booked = ({isButtonClicked}) => {
       <div className='flex mx-40 mr-40 rounded-xl text-base rounded-2xl mt-8'>
         <div className="m-[2px] bg-white rounded-xl w-full grid grid-cols-4 justify-between gap-10">
           {isLoading && <p>Loading data...</p>}
-          {isButtonClicked && data && !isLoading &&(
-            <div>
-              {data.map((data,index)=><BookedCard key={index} tokenId={data}>
+          {isButtonClicked && data && !isLoading &&(<>
+          {data.map((data,index)=>
+                <BookedCard key={index} tokenId={data}>
                 </BookedCard>)}
-              </div>  
+          </>
+              
           )}
           {!isLoading && !data &&(
             <div>Token Id does not exist!</div>
