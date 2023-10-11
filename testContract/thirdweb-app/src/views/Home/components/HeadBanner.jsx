@@ -2,29 +2,39 @@ import { useState, useEffect, memo } from 'react';
 import background1 from 'assets/image/background1.jpg';
 import background2 from 'assets/image/background2.jpg';
 import background3 from 'assets/image/background3.jpg';
-import background4 from 'assets/image/background4.jpg'; 
-import background5 from 'assets/image/background5.jpg'; 
-import background6 from 'assets/image/background6.jpg'; 
-import background7 from 'assets/image/background7.jpg'; 
-import background8 from 'assets/image/background8.jpg'; 
-import background9 from 'assets/image/background9.jpg'; 
-import background10 from 'assets/image/background10.jpg'; 
-import background11 from 'assets/image/background11.jpg'; 
-import background12 from 'assets/image/background12.jpg'; 
-import background13 from 'assets/image/background13.jpg'; 
+import background4 from 'assets/image/background4.jpg';
+import background5 from 'assets/image/background5.jpg';
+import background6 from 'assets/image/background6.jpg';
+import background7 from 'assets/image/background7.jpg';
+import background8 from 'assets/image/background8.jpg';
+import background9 from 'assets/image/background9.jpg';
+import background10 from 'assets/image/background10.jpg';
+import background11 from 'assets/image/background11.jpg';
+import background12 from 'assets/image/background/background12.jpg';
+import background13 from 'assets/image/background13.jpg';
 import background14 from 'assets/image/background14.jpg';
 
 const HeadBanner = () => {
-    const randomNumberInRange = (min, max) => { 
-        return Math.floor(Math.random()  
-                * (max - min + 1)) + min; 
-    }; 
-      const [bgIndex, setBgIndex] = useState(randomNumberInRange(0,13));
-      const backgroundImages = [
-        background1, background2, background3, background4, background5,
-        background6, background7, background8, background9, background10,
-        background11, background12, background13, background14,
-      ];
+    const randomNumberInRange = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+    const [bgIndex, setBgIndex] = useState(randomNumberInRange(0, 13));
+    const backgroundImages = [
+        background1,
+        background2,
+        background3,
+        background4,
+        background5,
+        background6,
+        background7,
+        background8,
+        background9,
+        background10,
+        background11,
+        background12,
+        background13,
+        background14,
+    ];
     useEffect(() => {
         // Change background every 7 seconds
         const interval = setInterval(() => {

@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import '../../styles/Home.css';
 import BookingCard from 'components/Booking/BookingCard';
 
 const Inner = memo(() => {

@@ -1,6 +1,9 @@
 import { memo } from 'react';
 import DestinationCard from './DestinationCard';
+import { useNavigate } from 'react-router-dom';
+import routeConstants from 'route/routeConstants';
 const Destinations = () => {
+    const navigate = useNavigate();
     return (
         <div className="w-11/12 h-[540px] mx-auto">
             <div className="w-full flex flex-row justify-between items-center py-4">
@@ -16,7 +19,10 @@ const Destinations = () => {
                         find your perfect destination. Explore diverse
                         landscapes and immerse yourself in local cultures.
                     </div>
-                    <div className="text-emerald-600 font-[600]">
+                    <div
+                        className="text-emerald-600 font-[600]"
+                        onClick={() => navigate(routeConstants.BOOKING)}
+                    >
                         Explore more
                     </div>
                 </div>

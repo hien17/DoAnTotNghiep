@@ -1,13 +1,3 @@
-import { useEffect, useState } from "react";
-import {
-  ConnectWallet,
-  Web3Button,
-  useAddress,
-  useContract,
-  useContractRead,
-} from "@thirdweb-dev/react";
-import "./styles/Home.css";
-
 import { memo } from 'react';
 import RouteController from './route/routeController';
 import { Provider } from 'react-redux';
@@ -17,11 +7,11 @@ import LoadingScreen from 'views/LoadingScreen/LoadingScreen';
 
 const App = memo(() => {
   return (
-      <Provider store={store}>
-          <PersistGate loading={<LoadingScreen />} persistor={persistor}>
-              <RouteController />
-          </PersistGate>
-      </Provider>
+    <Provider store={store}>
+      <PersistGate loading={<LoadingScreen />} persistor={persistor}>
+        <RouteController />
+      </PersistGate>
+    </Provider>
   );
 });
 
