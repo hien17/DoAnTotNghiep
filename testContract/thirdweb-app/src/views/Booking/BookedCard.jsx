@@ -15,7 +15,6 @@ import Calendar3 from 'icons/Calendar3';
 import Calendar2 from 'icons/Calendar2';
 
 const BookedCard = ({tokenId}) => {
-  const address = useAddress();
   const contractAddress = "0xC8339AEeCa4a529a7a0571b9654024600f5FC137";
   const { contract } = useContract(contractAddress);
   const { data, isLoading } = useContractRead(contract, "getNFTInfo", [tokenId]);
