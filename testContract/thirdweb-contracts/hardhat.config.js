@@ -1,4 +1,7 @@
 require("@matterlabs/hardhat-zksync-solc");
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config({path:'./.env'});
+require("@nomiclabs/hardhat-etherscan");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -24,6 +27,12 @@ module.exports = {
       chainId: 324,
       zksync: true,
     },
+    testnet: {
+      url: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+      chainId: 97,
+      gasPrice: 20000000000,
+      accounts: process.env.PRIVATE_KEY_TESTNET !== undefined ? [process.env.PRIVATE_KEY_TESTNET] : [],
+    },
   },
   paths: {
     artifacts: "./artifacts-zk",
@@ -38,6 +47,14 @@ module.exports = {
         enabled: true,
         runs: 200,
       },
+    },
+  },
+  // bscscan: {
+  //   apiKey: process.env.BSCSCAN_API_KEY,
+  // },
+  etherscan: {
+    apiKey: {
+      bscTestnet: process.env.BSCSCAN_API_KEY
     },
   },
 };
